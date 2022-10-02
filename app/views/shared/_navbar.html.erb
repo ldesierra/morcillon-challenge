@@ -1,0 +1,23 @@
+<nav id="header" class="z-index-2 navbar py-1 navbar-expand-md position-fixed w-100 top-0 border-bottom-white navbar-dark navbar-alternative bg-dark-secondary p-0 m-0 z-index-2 d-flex justify-content-center">
+  <div class="container px-3 d-flex justify-content-between align-items-start align-items-md-center my-2">
+    <%= link_to root_path, class: 'navbar-brand p-0 me-0' do %>
+      <%= image_tag 'logos/logo.png', class: 'logo w-60 w-sm-75 w-md-100 w-lg-auto logo-default me-3', alt: 'Small logo' %>
+      Calush Paintings
+    <% end %>
+    <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="d-flex flex-column align-items-start align-items-md-end w-100 mt-5 mt-md-0">
+        <ul class="navbar-nav ml-auto py-lg-0 text-start text-md-center pb-1">
+          <li class="nav-item mr-lg-3">
+            <%= link_to 'Todos los cuadros', paintings_path, class: 'nav-item nav-link font-sohne p-0 pb-2 pb-md-0 mx-md-2 fs-5 fs-md-6 text-light' + (current_page?(root_path) ? ' selected' : '') %>
+          </li>
+          <li class="nav-item mr-lg-3">
+            <%= link_to 'Mas sobre el proyecto', info_path, class: 'nav-item nav-link font-sohne p-0 pb-2 pb-md-0 mx-md-2 fs-5 fs-md-6 text-light' + (current_page?(root_path) ? ' selected' : '') %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

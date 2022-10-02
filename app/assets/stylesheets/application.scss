@@ -1,0 +1,157 @@
+$border-radius: 0.75rem;
+$border-radius-lg: 1.3rem;
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 4;
+
+.fs-3 {
+  font-size: $font-size-base * 3;
+}
+
+.height-fit-content {
+  height: fit-content !important;
+}
+
+@mixin after-cover {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  font-family: Georgia, serif;
+}
+
+body {
+  background-color: #171717;
+}
+
+.background-home {
+  height: 100vh !important;
+  width: 100vw !important;
+  object-fit: cover;
+  background-image: url(asset_path("background/home.jpeg")),
+    linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%); /* W3C */
+  background-position: center;
+  background-blend-mode: exclusion;
+  background-color: navy;
+}
+
+.opacity-80 {
+  opacity: 80;
+}
+
+.logo {
+  height: 40px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.z-index-0 {
+  z-index: 0;
+}
+
+.mt-10 {
+  margin-top: 8rem !important;
+}
+
+.h-100vh {
+  height: 100vh !important;
+}
+
+$theme-colors: (
+  "primary": #1d4a56,
+  "primary-light": #345c67,
+  "primary-dark": #00333e,
+  "secondary": #053e68,
+  "secondary-light": #23557a,
+  "secondary-dark": #052d59,
+  "tertiary": #404659,
+  "tertiary-light": #4d5266,
+  "tertiary-dark": #272a35,
+  "lily": #5883c8,
+  "light-green": #a7c493,
+  "light-blue": #aecad3,
+  "dark": #000000,
+  "dark-secondary": #171717,
+  "grey": #bebebe,
+  "grey-light": #e5e5e5,
+  "tradex": #0f1927,
+  "light": #ffffff,
+  "error": #d40d0d,
+  "yellow": #ffdf00,
+  "shadow": #f432,
+) !default;
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+
+.gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.of-cover {
+  object-fit: cover;
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(
+    180.01deg,
+    theme-color("dark-secondary") 37.59%,
+    theme-color("shadow") 100%
+  );
+}
+
+.border-bottom-white {
+  border-bottom: 3px solid white;
+}
+
+.painting {
+  &::after {
+    @extend .bg-gradient-dark;
+    @extend .rounded;
+    @include after-cover;
+
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    position: relative;
+    display: flex;
+
+    &::after {
+      opacity: 100%;
+    }
+
+    .painting-summary {
+      display: block !important;
+      white-space: normal !important;
+
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}
+
+@import "bootstrap";

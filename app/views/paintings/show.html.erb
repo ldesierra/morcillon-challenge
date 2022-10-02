@@ -1,0 +1,16 @@
+<%= render 'shared/navbar' %>
+
+<div class="w-100 position-relative h-100vh bg-dark-secondary row d-flex justify-content-center align-items-center mx-0">
+  <section class="col-11 w-100 d-flex flex-column flex-md-row justify-content-center align-items-center mt-4">
+    <div class="col-11 col-md-6 px-4 mt-10 mb-5 h-100">
+        <div>
+          <%= image_tag @painting.image.url, class: 'd-block w-100 rounded-2 gradient of-cover' %>
+        </div>
+    </div>
+    <div class="col-11 col-md-6 px-4 d-flex flex-column justify-content-start align-items-start h-100">
+      <h1 class="text-light"><%= @painting.name %></h1>
+      <h3 class="text-light mt-5"><%= @painting.description %></h3>
+      <%= link_to 'Ver en opensea', 'https://opensea.com', class: 'btn btn-secondary mt-5' %>
+    </div>
+  </section>
+</div>

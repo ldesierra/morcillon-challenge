@@ -1,0 +1,27 @@
+<section class="bg-dark-secondary w-100 d-flex flex-column justify-content-center align-items-center">
+  <h1 class="text-light mt-10 col-11">La primer coleccion del artista callejero uruguayo Calush</h1>
+  <div id="carouselExampleIndicators" class="carousel slide col-11 mt-3 mx-5 mb-5" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% paintings.each_with_index do |painting, index| %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
+        <% end %>
+      </ol>
+      <div class="carousel-inner">
+        <% paintings.each_with_index do |painting, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <%= image_tag painting.image.url, class: 'd-block w-100 rounded-2 gradient of-cover' %>
+            <div class="carousel-caption d-none d-md-block">
+                <h2><%= painting.name %></h2>
+                <h5><%= painting.description %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
+  </div>
+</section>
